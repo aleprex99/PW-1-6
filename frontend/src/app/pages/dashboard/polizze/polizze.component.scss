@@ -1,0 +1,82 @@
+@media (min-width: 1024px) {
+  .section {
+    margin-bottom: 48px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: 42px;
+  }
+}
+
+.section {
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card + .card {
+  margin-top: 2rem;
+}
+
+.card .polizza {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+}
+
+.card .polizza .header {
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: 600;
+  align-items: center;
+}
+
+.card .polizza .header .status { margin-left: 1rem; }
+.card .polizza .header .status.active { color: var(--green-600); }
+.card .polizza .header .status.inactive { color: var(--orange-600); }
+.card .polizza .subtitle {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-color-secondary);
+}
+
+.card .polizza .content {
+  padding: 1rem 0;
+}
+
+.card .polizza .content h3 {
+  font-size: 1.125rem;
+  color: var(--primary-900);
+  margin: 0;
+}
+
+.card .polizza .counters {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.card .polizza .counters .counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #dadee340;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  min-height: 5rem;
+  min-width: 10rem;
+}
+
+.card .polizza .counters .counter h3 {
+  font-size: 1.125rem;
+  color: var(--primary-900);
+  margin: 0 0 0.5rem 0; 
+}
+
+.card .polizza .counters .counter p {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+  margin: 0;
+}

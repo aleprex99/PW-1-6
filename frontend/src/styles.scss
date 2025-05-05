@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-bg-color: #f9f9f9;
+  --components-bg-color: #ffffff;
+
+  --card-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 9px;
+
+  --card-box-shadow-outline-error: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.0392156863),
+    0 0.063rem 0.125rem rgba(0, 0, 0, 0.0509803922),
+    inset 0 0 0 0.063rem rgba(255, 255, 255, 0.1490196078),
+    0 0 0 1px var(red);
+
+  --card-box-shadow-outline-warning: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.0392156863),
+      0 0.063rem 0.125rem rgba(0, 0, 0, 0.0509803922),
+      inset 0 0 0 0.063rem rgba(255, 255, 255, 0.1490196078),
+      0 0 0 1px var(orange);
+}
+
+body {
+  background-color: var(--main-bg-color);
+  margin: 0;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.5625rem
+}
+
+@media(min-width: 768px) {
+  h2 {
+      font-size:1.4375rem;
+      line-height: 1.75rem
+  }
+}
+
+.card {
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: var(--card-box-shadow);
+}
+
+p {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+  margin: 0;
+}

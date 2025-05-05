@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="header">
+    <div class="wrapper">
+      <div>FlexiKm</div>
+      <div class="buttons">
+        <p-button (onClick)="profileMenu.toggle($event)" label="Mario Rossi" icon="pi pi-user" [text]="true"/>
+        <p-menu #profileMenu [model]="profileMenuItems" [popup]="true" />
+      </div>
+    </div>
+    <div class="menu">
+      <p-tabMenu [model]="tabMenuItems" #tabMenu [activeItem]="activeTabMenuItem" (activeItemChange)="onActiveItemChange($event)"/>
+    </div>
+  </div>
+  <!-- <div class="content">
+    @switch (activeTabMenuItem?.label) {
+      @case("Polizze") {
+        <app-polizze></app-polizze>
+      }
+
+      @case("Preventivi") {
+        <app-preventivi></app-preventivi>
+      }
+    }
+  </div> -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

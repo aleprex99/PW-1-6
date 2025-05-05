@@ -1,0 +1,50 @@
+<div class="section">
+  <h2>Le tue polizze</h2>
+
+  @if(loading) {
+    <p>Caricamento in corso...</p>
+  }
+  @else {
+    @for (polizza of polizze; track polizza.id) {
+      <div style="padding:1rem;">
+        <div>{{polizza.id}}</div>
+        <div>{{polizza.dataInizio | date:'shortDate'}}</div>
+        <div>{{polizza.stato}}</div>
+        <div>{{polizza.veicolo?.targa}}</div>
+        <div>{{polizza.veicolo?.marca}} {{polizza.veicolo?.modello}}</div>
+      </div>
+      <div class="card">
+        <div class="polizza">
+          <div class="container">
+            <div class="header">
+              <div>Polizza n° {{polizza.numeroPolizza}}</div>
+              <div class="status active"><i class="pi pi-check-circle"></i> {{polizza.stato}}</div>
+            </div>
+            <div class="subtitle">{{polizza.dataInizio}} - {{polizza.durata}} mesi</div>
+            <div class="content">
+              <h3>{{polizza.veicolo?.marca}} {{polizza.veicolo?.modello}}</h3>
+              <div>{{polizza.veicolo?.targa}}</div>
+            </div>
+  
+            <p-button label="Gestisci" size="small" (click)="goToDettaglio(1)" /> <!--(click)="goToDettaglio(polizza.id)"-->
+          </div>
+          <div class="container">
+            <div class="counters">
+              <div class="counter">
+                <h3>{{polizza.utilizzoMensile.kmPercorsi}}</h3>
+                <p>Chilometri percorsi</p>
+              </div>
+              <div class="counter">
+                <h3>{{getConguaglio(polizza)}}</h3>
+                <p>Conguaglio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    } 
+    @empty {
+      <p-messages [value]="[{ severity: 'info', detail: 'Nessuna polizza attiva.' }]" [enableService]="false" [closable]="false"/>
+    }
+  }
+</div>

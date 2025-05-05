@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <p-card class="login-card">
+    <ng-template pTemplate="header">
+      <h3 class="title">Accedi a FlexiKm</h3>
+    </ng-template>
+
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input pInputText formControlName="email" type="text">
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="false"></p-password>
+      </div>
+
+      <button pButton pRipple label="Accedi" type="submit" [disabled]="loginForm.invalid"></button>
+    </form>
+  </p-card>
+</div>

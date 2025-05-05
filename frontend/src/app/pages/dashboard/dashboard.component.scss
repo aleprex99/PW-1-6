@@ -1,0 +1,121 @@
+.header { 
+  background: #fff;
+  height: 4.375rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header .wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  padding-inline: 3rem;
+}
+
+.header .menu {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+::ng-deep p-tabMenu .p-tabmenu {
+  font-weight: 600;
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+::ng-deep .header .menu p-tabMenu .p-tabmenu {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+::ng-deep p-tabMenu .p-tabmenu .p-tabmenu-nav {
+  border-color: #fff;
+}
+
+::ng-deep p-tabMenu .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  padding: 11px 12px 10px;
+}
+
+.sidebar { 
+  grid-area: sidebar;  
+  background-color: purple;
+}
+
+.container {
+  padding-top: 7.5rem;
+  padding-bottom: 12.5rem;
+}
+
+.content {
+  margin-top: 24px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 770px) {
+  .content,
+  ::ng-deep .header .menu p-tabMenu .p-tabmenu {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .content,
+  ::ng-deep .header .menu p-tabMenu .p-tabmenu {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content,
+  ::ng-deep .header .menu p-tabMenu .p-tabmenu {
+    width: 1170px;
+  }
+}
+
+// .topbar {
+//   height: 5rem;
+//   padding: 0 2rem 0 1rem;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   z-index: 1000;
+//   display: flex;
+//   align-items: center;
+//   background-color: var(--components-bg-color);
+// }
+
+.topbar button.profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  padding: 0;
+}
+
+// .sidebar {
+//   position: fixed;
+//   width: 5rem;
+//   display: flex;
+//   flex-direction: column;
+//   height: calc(100% - 5rem);
+//   left: 0;
+//   top: 5rem;
+//   -webkit-user-select: none;
+//   user-select: none;
+//   background-color: var(--components-bg-color);
+//   z-index: 999;
+// }

@@ -1,0 +1,27 @@
+# === FRONTEND (Angular) ===
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/out-tsc/
+frontend/.env
+
+# Angular build files
+frontend/*.log
+
+# === BACKEND (Spring Boot) ===
+backend/target/
+backend/.env
+
+# Maven wrapper logs
+backend/mvnw.cmd
+backend/mvnw
+backend/.mvn/
+
+# === IDE/Editor specific ===
+*.iml
+.idea/
+.vscode/
+
+# === System files ===
+.DS_Store
+Thumbs.db

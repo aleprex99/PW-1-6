@@ -1,0 +1,109 @@
+<!-- <ng-container *ngIf="!loading; else loadingTpl">
+  <h2>Polizza #{{polizza.id}}</h2>
+  <div><strong>Cliente ID:</strong> {{polizza.clienteId}}</div>
+  <div><strong>Data Inizio:</strong> {{polizza.dataInizio | date}}</div>
+  <div><strong>Stato:</strong> {{polizza.stato}}</div>
+  <div><strong>Quota Mensile:</strong> €{{polizza.quotaMensile}}</div>
+  <div><strong>Km Inclusi Base:</strong> {{polizza.kmInclusiBase}}</div>
+  <div><strong>Km Residui:</strong> {{polizza.kmInclusiResidui}}</div>
+  <div><strong>Costo Km Extra:</strong> €{{polizza.costoKmExtra}}</div>
+</ng-container>
+<ng-template #loadingTpl><p>Caricamento in corso...</p></ng-template> -->
+<div>
+  <div class="header">
+    <h2>{{veicolo.marca}} {{veicolo.modello}}</h2>
+    <h3>({{veicolo.annoImmatr}})</h3>
+    <div style="margin-bottom: 1rem;">{{veicolo.targa}}</div>
+    <div class="status active"><i class="pi pi-check-circle"></i> Polizza {{polizza.stato}}</div>
+    <p-button label="Scarica certificato assicurativo" size="small" (click)="generaCertificatoPolizza()" [style]="{'margin-top': '1rem'}" />
+  </div>
+  <div class="content">
+    <div class="section">
+
+      <h1>{{utilizzoMensile.mese}} {{utilizzoMensile.anno}}</h1>
+      <div class="container">
+        <div class="counters">
+          <div class="card counter">
+            <div>
+              <h2>{{polizza.quotaMensile}}</h2>
+              <p>Premio min. mensile</p>
+            </div>
+            <div class="descr">Lo paghi a prescindere dai km percorsi e comprende {{this.polizza.kmInclusiMensili}} km</div>
+          </div>
+          <div class="card counter">
+            <div>
+              <h2>{{utilizzoMensile.kmPercorsi}}</h2>
+              <p>Chilometri percorsi</p>
+            </div>
+            <p-meterGroup [value]="kmMeter" [style]="{'margin-top': '2rem'}"/>
+          </div>
+          <div class="card counter">
+            <div>
+              <h2>{{formatCurrency(getConguaglio())}}</h2>
+              <p>Conguaglio</p>
+            </div>
+            <div class="descr">{{getKmEccedenti()}} km eccedenti a<br> {{formatCurrency(polizza.costoKmExtra)}}/km</div>
+          </div>
+          <div class="card counter">
+            <div>
+              <h2>{{formatCurrency(sumGaranzieAccessorieImporto())}}</h2>
+              <p>Garanzie accessorie</p>
+            </div>
+            
+            <div class="descr">
+              @if (getSelectedGaranzie().length == 0) {
+                Non hai attivato garanzie accessorie
+              }
+              @else {
+                @for (garanzia of getSelectedGaranzie(); track garanzia.id) {
+                  {{garanzia.nome}}<br>
+                }
+              }
+            </div>
+          </div>
+          <div class="card counter">
+            <div>
+              <h2>{{formatCurrency(getCostoMensileEffettivo())}}</h2>
+              <p>Costo mensile effettivo</p>
+            </div>
+            <div class="descr">Aggiornato ad oggi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div>
+        <h3>Garanzie Attive</h3>
+        <div class="garanzie">
+          @for (garanzia of allGaranzie; track garanzia.id) {
+            <div class="card">
+              <div class="container">
+                <p-checkbox
+                  [binary]="false"
+                  [value]="garanzia.id"
+                  (onChange)="toggleGaranzia(garanzia.id)"
+                ></p-checkbox>
+                <div style="display: flex;flex-direction: column;justify-content: center;margin-left: 1rem;">
+                  <h4> {{garanzia.nome}} </h4>
+                  <p>{{garanzia.descr}}</p>
+                </div>
+              </div>
+  
+              <h2>
+                € {{formatCurrency(garanzia.costo)}}
+              </h2>
+            </div>
+          }
+        </div>
+        <div>
+          <button pButton type="button" label="Salva Garanzie" (click)="saveGaranzie()"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="section">
+      <app-sinistri [polizzaId]="polizza.id"></app-sinistri>
+    </div> -->
+  </div>
+</div>
